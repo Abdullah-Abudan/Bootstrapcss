@@ -1,0 +1,23 @@
+.navbar-light .navbar-nav .nav-link{
+    transition: .3s linear;
+    position: relative;
+    &::before{
+        content:"";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 3px;
+        background-color: $blue;
+        transition: inherit; //سيطبق على الرابط ناف لينك وأيضًا على البيفور
+    }
+    &.active,&:hover{
+        color: $blue;  
+        &::before{
+            width: 100%;
+        }
+       }
+}
+a.dropdown-item {
+    color: rgb(33 37 41 / 66%);
+}

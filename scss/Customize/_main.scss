@@ -1,0 +1,148 @@
+body{
+    font-family: cursive !important;
+    scroll-behavior: smooth;
+}
+
+#body-intro{
+    height: 70vh;
+    background: url(../images/hero-bg.jpg) center center/cover;
+    position: relative;
+    &::before{ // overlay
+        content: '';
+        position: absolute;
+        inset: 0; //top=bottom=left=right=0
+        background-color: transparentize(#fff, 0.3); //1 - 0.3 = .7
+    }
+}
+#about div img{
+    @media (min-width:992px) {
+        height: 100%;
+    }
+}
+#exampleModal{ //Modal
+    object{
+        height: 80vh;
+    }
+    &.fade .modal-dialog{
+        transition: transform 0.5s ease-out !important;
+        transform: scale(0);
+    }
+    &.show .modal-dialog{
+        transform: none; // that's mean scale is 1
+    }
+}
+.bg-section{
+    background-color: #f6f9fe;
+    & .title-bg{
+        background-color: #e7f1fd;
+    }
+}
+.title-bg{
+    background-color: #e7f1fd;  
+}
+.icon-container{
+    width:70px;
+    height:70px;
+}
+.progress-bar{
+    transition:2s linear !important;
+}
+
+.icon{
+    height: 60px;
+    width: 60px;
+}
+
+
+.icon-box{
+    .card-overly{
+        inset: 0;
+        transition: .8s linear !important;
+    }
+    & > *:not(.card-overly){
+        position: relative;
+        transition: .4s linear !important;
+    } // العنصر الذي يأخذ بوسيشن بعد عنصر آخر أخذ بوسيشن تكون له الأولوية للظهور أي الزد اندكس يكون أعلى فحتى يطبق هذا الشيء تم وضع دف الاوفرلي أولاً
+    &:hover{
+        .card-overly{
+            top: 0 !important;
+        } 
+        *{
+            color: white !important;
+        }   
+    }
+}
+
+.slider-section{
+    background: url(../../images/testimonials-bg.jpg) center center/cover;
+    &::before{ //overly
+        content: '';
+        position: absolute;  //position-relative for slider-section done in bs
+        inset: 0;
+        background-color: transparentize($color: #000000, $amount: 0.3); //1-0.3
+    }
+    & #carouselExampleCaptions{
+        height: 350px;
+    }
+    .carousel-item img{
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+    }
+}
+
+.filterd-items{
+    &>a{
+        height: 350px;
+        &.hidden{
+            display: none;
+        }
+        &.active{
+            display: block;
+            animation: scale .5s linear;
+        }
+    }
+    img{
+        object-fit: cover;
+    }
+}
+#portfolio li{
+    cursor: pointer;
+}
+@keyframes scale {
+    from{
+        transform: scale(0);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+
+#contact i{   //because i is inline we transform to inline-block
+    height: 50px;
+    width: 50px; 
+    border: 1px dashed ;
+    line-height: 50px; //to center icon
+} //contact 
+iframe{
+    @media (min-width:992px) {
+        height: 100%;
+    }
+} // حتى يكون للآي فريم والفورم نفس الارتفاع في الشاشات هذه
+
+.list-form li{
+    position: relative;
+    &::before{
+        content: '';
+        position: absolute;
+        transform: translateY(-50%);
+        border: 5px solid transparent;
+        border-left-color: $blue;
+        top: 50%;
+        left: -15px;
+    }
+}//footer
+
+section{
+    overflow: hidden; //حتى أمنع السكرول الناتج عن تأثير الزوم اوت الخاص بمكتبة aos
+}
